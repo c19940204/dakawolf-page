@@ -1,10 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
   <head>
-    <meta charset="utf-8">
-    <title>你好，GitHub</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Dakawolf 的個人作品集網站，展示專案、關於我與聯絡方式。"
+    />
+    <title>Dakawolf | Game Dev Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>覺得厲害</h1>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="site-logo" href="#top">DAKAWOLF</a>
+        <nav class="site-nav" aria-label="主要導覽">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Indie Game Developer Portfolio</p>
+            <h1>我是 Dakawolf</h1>
+            <p class="hero-intro">
+              專注於互動體驗、遊戲原型與作品打磨。這裡整理了我的開發作品、個人介紹與聯絡方式。
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#projects">查看作品</a>
+              <a class="button button-secondary" href="#contact">聯絡我</a>
+            </div>
+          </div>
+
+          <div class="hero-portrait-card" aria-label="個人頭像區塊">
+            <div class="portrait-frame">
+              <div class="portrait-placeholder">
+                <span>D</span>
+              </div>
+            </div>
+            <div class="portrait-meta">
+              <p class="portrait-label">Avatar</p>
+              <p class="portrait-note">
+                可替換成你的頭像圖片，或保留這個極簡識別風格。
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section" id="about">
+          <div class="section-heading">
+            <p class="section-kicker">About</p>
+            <h2>關於我</h2>
+          </div>
+          <div class="about-grid">
+            <article class="panel">
+              <p>
+                我喜歡把靈感快速做成可以實際遊玩的原型，並持續迭代成更完整的體驗。
+                平常關注遊戲設計、互動演出、手感調整與作品整體完成度。
+              </p>
+            </article>
+            <article class="panel">
+              <p>
+                這個網站使用純 HTML、CSS、JavaScript 製作，適合直接部署到
+                GitHub Pages，也方便之後自行修改文字、色彩與專案資料。
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="content-section" id="projects">
+          <div class="section-heading">
+            <p class="section-kicker">Projects</p>
+            <h2>作品集</h2>
+            <p class="section-description">
+              作品卡片會由 `script.js` 中的資料自動產生，你只要增減資料陣列即可更新網站內容。
+            </p>
+          </div>
+          <div class="projects-grid" id="projects-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="content-section" id="contact">
+          <div class="section-heading">
+            <p class="section-kicker">Contact</p>
+            <h2>聯絡方式</h2>
+          </div>
+          <div class="contact-grid">
+            <a class="contact-card" href="https://github.com/your-github-id" target="_blank" rel="noreferrer">
+              <span class="contact-label">GitHub</span>
+              <strong>github.com/your-github-id</strong>
+            </a>
+            <a class="contact-card" href="mailto:yourmail@example.com">
+              <span class="contact-label">Email</span>
+              <strong>yourmail@example.com</strong>
+            </a>
+            <a class="contact-card" href="https://x.com/your-handle" target="_blank" rel="noreferrer">
+              <span class="contact-label">X</span>
+              <strong>@your-handle</strong>
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>© <span id="current-year"></span> Dakawolf. Built for GitHub Pages.</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>

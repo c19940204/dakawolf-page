@@ -1,0 +1,393 @@
+:root {
+  --bg: #090d12;
+  --bg-soft: #111723;
+  --panel: rgba(15, 21, 31, 0.88);
+  --panel-strong: #121927;
+  --line: rgba(130, 160, 210, 0.18);
+  --line-strong: rgba(120, 195, 255, 0.34);
+  --text: #eff5ff;
+  --text-muted: #9ca9bd;
+  --accent: #67d4ff;
+  --accent-strong: #95f0ff;
+  --accent-warm: #ffc76b;
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+  --container: 1120px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Noto Sans TC", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, rgba(49, 95, 152, 0.22), transparent 34%),
+    linear-gradient(180deg, #0b1018 0%, #090d12 45%, #05080d 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent 85%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-shell {
+  width: min(calc(100% - 32px), var(--container));
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  backdrop-filter: blur(18px);
+}
+
+.site-logo,
+.site-nav a,
+.eyebrow,
+.section-kicker,
+.project-tag,
+.contact-label,
+.portrait-label {
+  font-family: "Chakra Petch", sans-serif;
+  letter-spacing: 0.08em;
+}
+
+.site-logo {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.site-nav a {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--accent-strong);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+  align-items: center;
+  gap: 32px;
+  padding: 56px 0 32px;
+}
+
+.eyebrow,
+.section-kicker,
+.project-tag,
+.portrait-label,
+.contact-label {
+  color: var(--accent);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.hero h1,
+.section-heading h2 {
+  margin: 0;
+  font-family: "Chakra Petch", sans-serif;
+  line-height: 1.05;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 9vw, 5.4rem);
+  text-wrap: balance;
+}
+
+.hero-intro,
+.section-description,
+.about-grid p,
+.project-card p,
+.portrait-note,
+.site-footer {
+  color: var(--text-muted);
+}
+
+.hero-intro {
+  max-width: 58ch;
+  margin: 18px 0 0;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 18px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-weight: 700;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.button:hover,
+.button:focus-visible,
+.contact-card:hover,
+.contact-card:focus-visible,
+.project-card:hover,
+.project-card:focus-visible {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  background: linear-gradient(135deg, var(--accent) 0%, #89ffe3 100%);
+  color: #051018;
+  box-shadow: 0 12px 28px rgba(103, 212, 255, 0.24);
+}
+
+.button-secondary {
+  border-color: var(--line-strong);
+  background: rgba(9, 13, 18, 0.65);
+}
+
+.hero-portrait-card,
+.panel,
+.project-card,
+.contact-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.hero-portrait-card {
+  padding: 22px;
+}
+
+.hero-portrait-card::after,
+.panel::after,
+.project-card::after,
+.contact-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -20% -50% auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(103, 212, 255, 0.14), transparent 65%);
+  pointer-events: none;
+}
+
+.portrait-frame {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border: 1px solid var(--line-strong);
+  border-radius: 20px;
+  background:
+    linear-gradient(180deg, rgba(149, 240, 255, 0.12), rgba(149, 240, 255, 0.02)),
+    rgba(13, 20, 31, 0.88);
+}
+
+.portrait-placeholder {
+  display: grid;
+  place-items: center;
+  width: min(100%, 280px);
+  aspect-ratio: 1;
+  border-radius: 18px;
+  border: 1px dashed rgba(149, 240, 255, 0.35);
+  background:
+    radial-gradient(circle at center, rgba(103, 212, 255, 0.22), transparent 58%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+}
+
+.portrait-placeholder span {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: clamp(4rem, 11vw, 7rem);
+  font-weight: 700;
+  color: var(--accent-strong);
+}
+
+.portrait-meta {
+  margin-top: 18px;
+}
+
+.content-section {
+  padding: 44px 0;
+}
+
+.section-heading {
+  margin-bottom: 22px;
+}
+
+.section-heading h2 {
+  font-size: clamp(2rem, 6vw, 3.2rem);
+}
+
+.section-description {
+  max-width: 65ch;
+  margin-top: 12px;
+  line-height: 1.75;
+}
+
+.about-grid,
+.contact-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.panel {
+  padding: 24px;
+}
+
+.panel p,
+.project-card p {
+  margin: 0;
+  line-height: 1.8;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
+  justify-content: center;
+  gap: 22px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 22px;
+}
+
+.project-card h3 {
+  margin: 12px 0 10px;
+  font-size: 1.35rem;
+  font-family: "Chakra Petch", sans-serif;
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 20px;
+}
+
+.project-chip {
+  padding: 7px 10px;
+  border: 1px solid rgba(149, 240, 255, 0.16);
+  border-radius: 999px;
+  color: #d5e3fb;
+  background: rgba(149, 240, 255, 0.07);
+  font-size: 0.85rem;
+}
+
+.project-link {
+  margin-top: auto;
+  color: var(--accent-warm);
+  font-weight: 700;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px;
+}
+
+.contact-card strong {
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.site-footer {
+  padding: 32px 0 48px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 860px) {
+  .hero,
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 28px;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-shell {
+    width: min(calc(100% - 20px), var(--container));
+  }
+
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 18px 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 16vw, 3.7rem);
+  }
+
+  .hero-intro,
+  .section-description,
+  .panel p,
+  .project-card p {
+    font-size: 0.97rem;
+  }
+
+  .project-card,
+  .panel,
+  .contact-card,
+  .hero-portrait-card {
+    padding: 18px;
+    border-radius: 20px;
+  }
+}
