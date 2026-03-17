@@ -1,120 +1,147 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Dakawolf 的個人作品集網站，展示專案、關於我與聯絡方式。"
+      content="Dakawolf portfolio with tabbed sections for about, game projects, commissions, and art."
     />
-    <title>Dakawolf | Game Dev Portfolio</title>
+    <title>Dakawolf Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Noto+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="page-shell">
+    <div class="bg-glow bg-glow-a"></div>
+    <div class="bg-glow bg-glow-b"></div>
+
+    <div class="site-shell">
       <header class="site-header">
         <a class="site-logo" href="#top">DAKAWOLF</a>
-        <nav class="site-nav" aria-label="主要導覽">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+        <nav class="tab-nav" aria-label="Main tabs">
+          <button class="tab-button is-active" data-tab-target="about" type="button">
+            ABOUT
+          </button>
+          <button class="tab-button" data-tab-target="project" type="button">
+            GAME PROJECT
+          </button>
+          <button class="tab-button" data-tab-target="commission" type="button">
+            ALL COMMISSION ABOUT ME
+          </button>
+          <button class="tab-button" data-tab-target="my-art" type="button">
+            MY ART
+          </button>
         </nav>
       </header>
 
-      <main id="top">
-        <section class="hero">
-          <div class="hero-copy">
-            <p class="eyebrow">Indie Game Developer Portfolio</p>
-            <h1>我是 Dakawolf</h1>
-            <p class="hero-intro">
-              專注於互動體驗、遊戲原型與作品打磨。這裡整理了我的開發作品、個人介紹與聯絡方式。
-            </p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="#projects">查看作品</a>
-              <a class="button button-secondary" href="#contact">聯絡我</a>
-            </div>
+      <main id="top" class="tab-panels">
+        <section class="tab-panel is-active" id="panel-about" data-tab-panel="about">
+          <div class="panel-header">
+            <p class="panel-kicker">ABOUT</p>
+            <h1>Dakawolf</h1>
           </div>
 
-          <div class="hero-portrait-card" aria-label="個人頭像區塊">
-            <div class="portrait-frame">
-              <div class="portrait-placeholder">
-                <span>D</span>
-              </div>
+          <article class="about-card">
+            <div class="about-image-wrap">
+              <img
+                src="images/about-avatar.svg"
+                alt="Dakawolf profile image"
+                class="about-image"
+              />
             </div>
-            <div class="portrait-meta">
-              <p class="portrait-label">Avatar</p>
-              <p class="portrait-note">
-                可替換成你的頭像圖片，或保留這個極簡識別風格。
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section class="content-section" id="about">
-          <div class="section-heading">
-            <p class="section-kicker">About</p>
-            <h2>關於我</h2>
-          </div>
-          <div class="about-grid">
-            <article class="panel">
+            <div class="about-content">
+              <h2>Who Am I</h2>
               <p>
-                我喜歡把靈感快速做成可以實際遊玩的原型，並持續迭代成更完整的體驗。
-                平常關注遊戲設計、互動演出、手感調整與作品整體完成度。
+                I am Dakawolf, a game creator focused on gameplay feel, world atmosphere,
+                and interactive storytelling. This page is my personal archive for game
+                development and art journey.
               </p>
-            </article>
-            <article class="panel">
               <p>
-                這個網站使用純 HTML、CSS、JavaScript 製作，適合直接部署到
-                GitHub Pages，也方便之後自行修改文字、色彩與專案資料。
+                You can replace this text with your full bio, current role, tools, and
+                project highlights.
               </p>
-            </article>
-          </div>
+            </div>
+          </article>
+
+          <section class="contact-section">
+            <div class="section-title-row">
+              <h3>Contact</h3>
+            </div>
+            <div class="contact-grid">
+              <a
+                class="contact-card"
+                href="https://github.com/your-github-id"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span class="contact-label">GitHub</span>
+                <strong>github.com/your-github-id</strong>
+              </a>
+              <a class="contact-card" href="mailto:yourmail@example.com">
+                <span class="contact-label">Email</span>
+                <strong>yourmail@example.com</strong>
+              </a>
+              <a class="contact-card" href="https://x.com/your-handle" target="_blank" rel="noreferrer">
+                <span class="contact-label">X</span>
+                <strong>@your-handle</strong>
+              </a>
+            </div>
+          </section>
         </section>
 
-        <section class="content-section" id="projects">
-          <div class="section-heading">
-            <p class="section-kicker">Projects</p>
-            <h2>作品集</h2>
-            <p class="section-description">
-              作品卡片會由 `script.js` 中的資料自動產生，你只要增減資料陣列即可更新網站內容。
-            </p>
+        <section class="tab-panel" id="panel-project" data-tab-panel="project">
+          <div class="panel-header">
+            <p class="panel-kicker">GAME PROJECT</p>
+            <h1>Projects</h1>
           </div>
-          <div class="projects-grid" id="projects-grid" aria-live="polite"></div>
+
+          <section class="section-block">
+            <div class="section-title-row">
+              <h2>Commercial Game Projects</h2>
+            </div>
+            <div class="project-grid" id="commercial-project-grid"></div>
+          </section>
+
+          <section class="section-block">
+            <div class="section-title-row">
+              <h2>Private Game Projects</h2>
+            </div>
+            <div class="project-grid" id="private-project-grid"></div>
+          </section>
         </section>
 
-        <section class="content-section" id="contact">
-          <div class="section-heading">
-            <p class="section-kicker">Contact</p>
-            <h2>聯絡方式</h2>
+        <section class="tab-panel" id="panel-commission" data-tab-panel="commission">
+          <div class="panel-header">
+            <p class="panel-kicker">ALL COMMISSION ABOUT ME</p>
+            <h1>Furry Commissions About Me</h1>
           </div>
-          <div class="contact-grid">
-            <a class="contact-card" href="https://github.com/your-github-id" target="_blank" rel="noreferrer">
-              <span class="contact-label">GitHub</span>
-              <strong>github.com/your-github-id</strong>
-            </a>
-            <a class="contact-card" href="mailto:yourmail@example.com">
-              <span class="contact-label">Email</span>
-              <strong>yourmail@example.com</strong>
-            </a>
-            <a class="contact-card" href="https://x.com/your-handle" target="_blank" rel="noreferrer">
-              <span class="contact-label">X</span>
-              <strong>@your-handle</strong>
-            </a>
+          <div id="commission-year-sections" class="year-sections"></div>
+        </section>
+
+        <section class="tab-panel" id="panel-my-art" data-tab-panel="my-art">
+          <div class="panel-header">
+            <p class="panel-kicker">MY ART</p>
+            <h1>My Art Archive</h1>
           </div>
+          <div id="my-art-year-sections" class="year-sections"></div>
         </section>
       </main>
 
       <footer class="site-footer">
-        <p>© <span id="current-year"></span> Dakawolf. Built for GitHub Pages.</p>
+        <p>&copy; <span id="current-year"></span> Dakawolf</p>
       </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/tabs.js"></script>
+    <script src="js/renderProjects.js"></script>
+    <script src="js/renderCommissions.js"></script>
+    <script src="js/renderMyArt.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

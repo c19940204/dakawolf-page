@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
+  <rect width="1000" height="1000" fill="#26354f"/>
+  <circle cx="500" cy="500" r="290" fill="#4ec8b4" fill-opacity="0.38"/>
+  <text x="500" y="525" text-anchor="middle" fill="#f1fbff" font-size="52" font-family="Arial, sans-serif">COMMISSION IMAGE B</text>
+</svg>

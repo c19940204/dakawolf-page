@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
+  <rect width="1000" height="1000" fill="#274245"/>
+  <circle cx="500" cy="500" r="330" fill="#7fd9ff" fill-opacity="0.35"/>
+  <text x="500" y="535" text-anchor="middle" fill="#e8fdff" font-size="62" font-family="Arial, sans-serif">MY ART SQUARE</text>
+</svg>
