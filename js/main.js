@@ -1,3 +1,24 @@
+function renderAboutContent() {
+  const aboutContainer = document.getElementById("about-content");
+  const aboutData = window.aboutContentData;
+
+  if (!aboutContainer || !aboutData) return;
+
+  aboutContainer.innerHTML = "";
+
+  const heading = document.createElement("h2");
+  heading.textContent = aboutData.title || "";
+  aboutContainer.appendChild(heading);
+
+  (aboutData.paragraphs || []).forEach((text) => {
+    const paragraph = document.createElement("p");
+    paragraph.textContent = text;
+    aboutContainer.appendChild(paragraph);
+  });
+}
+
+renderAboutContent();
+
 window.initTabs();
 
 window.renderProjects("commercial-project-grid", window.projectData.commercial);
