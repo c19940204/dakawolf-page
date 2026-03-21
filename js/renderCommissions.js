@@ -1,50 +1,62 @@
-function createCommissionCard(commission) {
+﻿function createCommissionCard(commission) {
   const card = document.createElement("article");
   card.className = "commission-card";
 
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "gallery-trigger";
+  button.dataset.lightboxSrc = commission.full || commission.image || commission.thumb || "";
+  button.dataset.lightboxAlt = commission.title || "Commission image";
+  button.dataset.lightboxLabel = commission.title || "Commission image";
+
+  const frame = document.createElement("div");
+  frame.className = "image-frame";
+
   const image = document.createElement("img");
-  image.src = commission.image;
-  image.alt = `Commission by ${commission.artistName}`;
+  image.src = commission.thumb || commission.image || commission.full || "";
+  image.alt = commission.title || "Commission image";
+  image.loading = "lazy";
+  image.decoding = "async";
 
-  const text = document.createElement("p");
-  const artist = document.createElement("span");
-  artist.textContent = `Artist: ${commission.artistName} `;
+  const overlay = document.createElement("div");
+  overlay.className = "image-overlay";
 
-  const link = document.createElement("a");
-  link.href = commission.artistUrl;
-  link.target = "_blank";
-  link.rel = "noreferrer";
-  link.textContent = "Profile Link";
+  const title = document.createElement("strong");
+  title.textContent = commission.title || "Sample Commission";
 
-  text.append(artist, link);
-  card.append(image, text);
+  overlay.append(title);
+  frame.append(image, overlay);
+  button.append(frame);
+  card.append(button);
+
   return card;
 }
 
-function renderCommissionsByYear(containerId, data) {
-  const container = document.getElementById(containerId);
-  if (!container) return;
-
-  container.innerHTML = "";
-
-  Object.entries(data).forEach(([year, commissions]) => {
-    const section = document.createElement("section");
-    section.className = "year-section";
-
-    const yearLabel = document.createElement("h2");
-    yearLabel.className = "year-label";
-    yearLabel.textContent = year;
-
-    const grid = document.createElement("div");
-    grid.className = "commission-grid";
-
-    commissions.forEach((commission) => {
-      grid.appendChild(createCommissionCard(commission));
-    });
-
-    section.append(yearLabel, grid);
-    container.appendChild(section);
-  });
+function getCommissionItems(data) {
+  if (Array.isArray(data) && data.length) return data;
+  if (data && typeof data === "object") {
+    return Object.values(data).flat().filter(Boolean);
+  }
+  return [];
 }
 
-window.renderCommissionsByYear = renderCommissionsByYear;
+function renderCommissions(containerId, data) {
+  const container = document.getElementById(containerId);
+  if (!container) return false;
+
+  if (container.dataset.rendered === "true") return true;
+
+  const items = getCommissionItems(data);
+  const fallbackItems = window.commissionSamples || [];
+  const finalItems = items.length ? items : fallbackItems;
+
+  container.innerHTML = "";
+  finalItems.forEach((commission) => {
+    container.appendChild(createCommissionCard(commission));
+  });
+
+  container.dataset.rendered = "true";
+  return true;
+}
+
+window.renderCommissions = renderCommissions;

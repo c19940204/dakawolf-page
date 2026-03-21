@@ -2,14 +2,33 @@ function createArtCard(art) {
   const figure = document.createElement("figure");
   figure.className = "art-card";
 
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "gallery-trigger";
+  button.dataset.lightboxSrc = art.image;
+  button.dataset.lightboxAlt = art.caption;
+  button.dataset.lightboxLabel = art.caption;
+
+  const frame = document.createElement("div");
+  frame.className = "image-frame";
+
   const image = document.createElement("img");
   image.src = art.image;
   image.alt = art.caption;
 
-  const caption = document.createElement("figcaption");
-  caption.textContent = art.caption;
+  const overlay = document.createElement("div");
+  overlay.className = "image-overlay";
 
-  figure.append(image, caption);
+  const title = document.createElement("strong");
+  title.textContent = art.caption;
+
+  const subtitle = document.createElement("span");
+  subtitle.textContent = "Click to enlarge";
+
+  overlay.append(title, subtitle);
+  frame.append(image, overlay);
+  button.append(frame);
+  figure.append(button);
   return figure;
 }
 
@@ -21,20 +40,20 @@ function renderMyArtByYear(containerId, data) {
 
   Object.entries(data).forEach(([year, arts]) => {
     const section = document.createElement("section");
-    section.className = "year-section";
+    section.className = "year-section reveal";
 
     const yearLabel = document.createElement("h2");
     yearLabel.className = "year-label";
     yearLabel.textContent = year;
 
-    const masonry = document.createElement("div");
-    masonry.className = "art-masonry";
+    const grid = document.createElement("div");
+    grid.className = "art-gallery-grid";
 
     arts.forEach((art) => {
-      masonry.appendChild(createArtCard(art));
+      grid.appendChild(createArtCard(art));
     });
 
-    section.append(yearLabel, masonry);
+    section.append(yearLabel, grid);
     container.appendChild(section);
   });
 }

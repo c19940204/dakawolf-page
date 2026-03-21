@@ -1,6 +1,6 @@
 function createProjectCard(project) {
   const card = document.createElement("article");
-  card.className = "project-card";
+  card.className = "project-card reveal";
 
   const image = document.createElement("img");
   image.src = project.image;

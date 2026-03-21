@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Dakawolf portfolio with tabbed sections for about, game projects, commissions, and art."
+      content="Dakawolf portfolio with a layered hero, featured projects, commissions, and art archive."
     />
     <title>Dakawolf Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,36 +17,61 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="bg-glow bg-glow-a"></div>
-    <div class="bg-glow bg-glow-b"></div>
-
-    <div class="site-shell">
-      <header class="site-header">
+    <header class="site-header" id="top">
+      <div class="nav-shell">
         <a class="site-logo" href="#top">DAKAWOLF</a>
-        <nav class="tab-nav" aria-label="Main tabs">
-          <button class="tab-button is-active" data-tab-target="about" type="button">
-            ABOUT
-          </button>
-          <button class="tab-button" data-tab-target="project" type="button">
-            GAME PROJECT
-          </button>
-          <button class="tab-button" data-tab-target="commission" type="button">
-            ALL COMMISSION ABOUT ME
-          </button>
-          <button class="tab-button" data-tab-target="my-art" type="button">
-            MY ART
-          </button>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#commissions">Commissions</a>
+          <a href="#contact">Contact</a>
         </nav>
-      </header>
+      </div>
+    </header>
 
-      <main id="top" class="tab-panels">
-        <section class="tab-panel is-active" id="panel-about" data-tab-panel="about">
-          <div class="panel-header">
-            <p class="panel-kicker">ABOUT</p>
-            <h1>Dakawolf</h1>
+    <main>
+      <section class="hero-banner">
+        <div class="hero-media" aria-hidden="true"></div>
+        <div class="hero-tint" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-a" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-b" aria-hidden="true"></div>
+        <div class="hero-ground" aria-hidden="true"></div>
+
+        <div class="hero-shell">
+          <div class="hero-copy reveal">
+            <p class="hero-kicker">WELCOME TO MY WEBSITE</p>
+            <h1>Hi,<br />I am Dakawolf.</h1>
+            <p class="hero-description">
+              A calm personal space for my profile, artwork, commission archive, and event notes.
+              I want the first screen to feel open, soft, and easy to explore at a glance.
+            </p>
+            <p class="hero-meta">Curated by Dakawolf Personal Archive</p>
           </div>
 
-          <article class="about-card">
+          <aside class="hero-card reveal reveal-delay-1">
+            <p class="hero-card-label">Hero Setup</p>
+            <h2>Full banner control</h2>
+            <ul class="hero-card-list">
+              <li>Use `--hero-image` to swap the main hero photo.</li>
+              <li>Use `--hero-focus-x` and `--hero-focus-y` to shift the focal point.</li>
+              <li>Use `--band-image` and band colors for each wide section below.</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="content-section intro-section reveal" id="about">
+        <div class="section-heading">
+          <p class="section-kicker">About</p>
+          <h2>A soft, readable content rhythm</h2>
+          <p>
+            The page alternates between bright sections and warm neutral sections to keep the
+            scrolling experience light instead of visually heavy.
+          </p>
+        </div>
+
+        <div class="about-layout">
+          <article class="about-panel reveal reveal-delay-1">
             <div class="about-image-wrap">
               <img
                 src="images/about/Daka_Wolf.png"
@@ -57,97 +82,128 @@
             <div class="about-content" id="about-content"></div>
           </article>
 
-          <section class="video-section">
-            <div class="section-title-row">
-              <h3>Featured Video</h3>
-            </div>
-            <div class="video-wrap">
-              <iframe
-                src="https://www.youtube.com/embed/7ftC-2zBb1I"
-                title="Featured YouTube Video"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </section>
+          <aside class="info-stack reveal reveal-delay-2">
+            <section class="info-card">
+              <h3>Visual Direction</h3>
+              <p>
+                Large banner image, generous whitespace, pale blue headings, and soft cards for
+                the supporting content.
+              </p>
+            </section>
+            <section class="info-card">
+              <h3>How to Customize</h3>
+              <p>
+                You can set a different background for any full-width band by changing CSS variables
+                instead of rebuilding the layout.
+              </p>
+            </section>
+          </aside>
+        </div>
+      </section>
 
-          <section class="contact-section">
-            <div class="section-title-row">
-              <h3>Contact</h3>
-            </div>
-            <div class="contact-grid">
-              <a
-                class="contact-card"
-                href="https://github.com/your-github-id"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span class="contact-label">GitHub</span>
-                <strong>github.com/your-github-id</strong>
-              </a>
-              <a class="contact-card" href="mailto:yourmail@example.com">
-                <span class="contact-label">Email</span>
-                <strong>yourmail@example.com</strong>
-              </a>
-              <a class="contact-card" href="https://x.com/your-handle" target="_blank" rel="noreferrer">
-                <span class="contact-label">X</span>
-                <strong>@your-handle</strong>
-              </a>
-            </div>
-          </section>
+      <section class="content-section reveal" id="projects">
+        <div class="section-heading">
+          <p class="section-kicker">Projects</p>
+          <h2>Work presented in clean blocks</h2>
+          <p>Projects stay readable through large cards, light borders, and restrained typography.</p>
+        </div>
+
+        <section class="subsection reveal reveal-delay-1">
+          <div class="subsection-heading">
+            <h3>Commercial Game Projects</h3>
+          </div>
+          <div class="project-grid" id="commercial-project-grid"></div>
         </section>
 
-        <section class="tab-panel" id="panel-project" data-tab-panel="project">
-          <div class="panel-header">
-            <p class="panel-kicker">GAME PROJECT</p>
-            <h1>Projects</h1>
+        <section class="subsection reveal reveal-delay-2">
+          <div class="subsection-heading">
+            <h3>Private Game Projects</h3>
+          </div>
+          <div class="project-grid" id="private-project-grid"></div>
+        </section>
+      </section>
+
+      <section class="content-section reveal" id="contact">
+        <div class="split-heading">
+          <div class="section-heading section-heading-left">
+            <p class="section-kicker">Contact</p>
+            <h2>Keep the social area simple</h2>
+            <p>
+              Short social blocks and a featured video work well here because they break up the
+              image-heavy sections without feeling dense.
+            </p>
           </div>
 
-          <section class="section-block">
-            <div class="section-title-row">
-              <h2>Commercial Game Projects</h2>
-            </div>
-            <div class="project-grid" id="commercial-project-grid"></div>
-          </section>
-
-          <section class="section-block">
-            <div class="section-title-row">
-              <h2>Private Game Projects</h2>
-            </div>
-            <div class="project-grid" id="private-project-grid"></div>
-          </section>
-        </section>
-
-        <section class="tab-panel" id="panel-commission" data-tab-panel="commission">
-          <div class="panel-header">
-            <p class="panel-kicker">ALL COMMISSION ABOUT ME</p>
-            <h1>Furry Commissions About Me</h1>
+          <div class="contact-grid reveal reveal-delay-1">
+            <a
+              class="contact-card"
+              href="https://github.com/your-github-id"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="contact-label">GitHub</span>
+              <strong>github.com/your-github-id</strong>
+            </a>
+            <a class="contact-card" href="mailto:yourmail@example.com">
+              <span class="contact-label">Email</span>
+              <strong>yourmail@example.com</strong>
+            </a>
+            <a class="contact-card" href="https://x.com/your-handle" target="_blank" rel="noreferrer">
+              <span class="contact-label">X</span>
+              <strong>@your-handle</strong>
+            </a>
           </div>
-          <div id="commission-year-sections" class="year-sections"></div>
-        </section>
+        </div>
 
-        <section class="tab-panel" id="panel-my-art" data-tab-panel="my-art">
-          <div class="panel-header">
-            <p class="panel-kicker">MY ART</p>
-            <h1>My Art Archive</h1>
+        <div class="video-panel reveal reveal-delay-2">
+          <div class="subsection-heading">
+            <h3>Featured Video</h3>
           </div>
-          <div id="my-art-year-sections" class="year-sections"></div>
-        </section>
-      </main>
+          <div class="video-wrap">
+            <iframe
+              src="https://www.youtube.com/embed/7ftC-2zBb1I"
+              title="Featured YouTube Video"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
 
-      <footer class="site-footer">
-        <p>&copy; <span id="current-year"></span> Dakawolf</p>
-      </footer>
+      <section class="content-section reveal" id="commissions">
+        <div class="section-heading">
+          <p class="section-kicker">Commissions</p>
+          <h2>Hover details and click-to-expand art</h2>
+          <p>
+            Commission images now support overlay information on hover and can open in a lightbox
+            when clicked.
+          </p>
+        </div>
+        <div id="commission-grid" class="commission-grid commission-grid-featured"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="current-year"></span> Dakawolf</p>
+    </footer>
+
+    <div class="lightbox" id="lightbox" hidden>
+      <button class="lightbox-backdrop" id="lightbox-backdrop" type="button" aria-label="Close image preview"></button>
+      <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+        <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close image preview">
+          x
+        </button>
+        <p class="lightbox-label" id="lightbox-title"></p>
+        <img class="lightbox-image" id="lightbox-image" alt="" />
+      </div>
     </div>
 
     <script src="js/data.js"></script>
     <script src="code-localtion/about-content.js"></script>
-    <script src="js/tabs.js"></script>
     <script src="js/renderProjects.js"></script>
     <script src="js/renderCommissions.js"></script>
-    <script src="js/renderMyArt.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
