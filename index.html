@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Dakawolf portfolio with a layered hero, featured projects, commissions, and art archive."
+      content="Dakawolf portfolio with a layered hero, featured projects, commissions, and contact links."
     />
     <title>Dakawolf Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,189 +19,224 @@
   <body>
     <header class="site-header" id="top">
       <div class="nav-shell">
-        <a class="site-logo" href="#top">DAKAWOLF</a>
-        <nav class="site-nav" aria-label="Primary">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#commissions">Commissions</a>
-          <a href="#contact">Contact</a>
+        <div class="brand-cluster">
+          <a class="site-logo" href="#top">DAKAWOLF</a>
+          <button
+            class="language-toggle"
+            id="language-toggle"
+            type="button"
+            data-i18n="ui.language_toggle"
+            aria-label="Toggle language"
+          >
+            中文
+          </button>
+        </div>
+
+        <nav class="site-nav" aria-label="Primary tabs">
+          <button class="tab-button is-active" data-tab-target="home" type="button" data-i18n="tabs.home">
+            Home
+          </button>
+          <button class="tab-button" data-tab-target="projects" type="button" data-i18n="tabs.projects">
+            Projects
+          </button>
+          <button class="tab-button" data-tab-target="commissions" type="button" data-i18n="tabs.commissions">
+            Commissions
+          </button>
         </nav>
       </div>
     </header>
 
-    <main>
-      <section class="hero-banner">
-        <div class="hero-media" aria-hidden="true"></div>
-        <div class="hero-tint" aria-hidden="true"></div>
-        <div class="hero-glow hero-glow-a" aria-hidden="true"></div>
-        <div class="hero-glow hero-glow-b" aria-hidden="true"></div>
-        <div class="hero-ground" aria-hidden="true"></div>
+    <main class="tab-panels">
+      <section class="tab-panel is-active" data-tab-panel="home">
+        <section class="hero-banner">
+          <div class="hero-media" aria-hidden="true"></div>
+          <div class="hero-tint" aria-hidden="true"></div>
+          <div class="hero-glow hero-glow-a" aria-hidden="true"></div>
+          <div class="hero-glow hero-glow-b" aria-hidden="true"></div>
+          <div class="hero-ground" aria-hidden="true"></div>
 
-        <div class="hero-shell">
-          <div class="hero-copy reveal">
-            <p class="hero-kicker">WELCOME TO MY WEBSITE</p>
-            <h1>Hi,<br />I am Dakawolf.</h1>
-            <p class="hero-description">
-              A calm personal space for my profile, artwork, commission archive, and event notes.
-              I want the first screen to feel open, soft, and easy to explore at a glance.
-            </p>
-            <p class="hero-meta">Curated by Dakawolf Personal Archive</p>
-          </div>
-
-          <aside class="hero-card reveal reveal-delay-1">
-            <p class="hero-card-label">Hero Setup</p>
-            <h2>Full banner control</h2>
-            <ul class="hero-card-list">
-              <li>Use `--hero-image` to swap the main hero photo.</li>
-              <li>Use `--hero-focus-x` and `--hero-focus-y` to shift the focal point.</li>
-              <li>Use `--band-image` and band colors for each wide section below.</li>
-            </ul>
-          </aside>
-        </div>
-      </section>
-
-      <section class="content-section intro-section reveal" id="about">
-        <div class="section-heading">
-          <p class="section-kicker">About</p>
-          <h2>A soft, readable content rhythm</h2>
-          <p>
-            The page alternates between bright sections and warm neutral sections to keep the
-            scrolling experience light instead of visually heavy.
-          </p>
-        </div>
-
-        <div class="about-layout">
-          <article class="about-panel reveal reveal-delay-1">
-            <div class="about-image-wrap">
-              <img
-                src="images/about/Daka_Wolf.png"
-                alt="Dakawolf profile image"
-                class="about-image"
-              />
+          <div class="hero-shell">
+            <div class="hero-copy reveal">
+              <p class="hero-kicker" data-i18n="hero.kicker">WELCOME TO MY WEBSITE</p>
+              <h1 data-i18n="hero.title">Hi,<br />I am Dakawolf.</h1>
+              <p class="hero-description" data-i18n="hero.description">
+                A calm personal space for my profile, artwork, commission archive, and event notes.
+                I want the first screen to feel open, soft, and easy to explore at a glance.
+              </p>
+              <p class="hero-meta" data-i18n="hero.meta">Curated by Dakawolf Personal Archive</p>
             </div>
-            <div class="about-content" id="about-content"></div>
-          </article>
 
-          <aside class="info-stack reveal reveal-delay-2">
-            <section class="info-card">
-              <h3>Visual Direction</h3>
-              <p>
-                Large banner image, generous whitespace, pale blue headings, and soft cards for
-                the supporting content.
-              </p>
-            </section>
-            <section class="info-card">
-              <h3>How to Customize</h3>
-              <p>
-                You can set a different background for any full-width band by changing CSS variables
-                instead of rebuilding the layout.
-              </p>
-            </section>
-          </aside>
-        </div>
-      </section>
-
-      <section class="content-section reveal" id="projects">
-        <div class="section-heading">
-          <p class="section-kicker">Projects</p>
-          <h2>Work presented in clean blocks</h2>
-          <p>Projects stay readable through large cards, light borders, and restrained typography.</p>
-        </div>
-
-        <section class="subsection reveal reveal-delay-1">
-          <div class="subsection-heading">
-            <h3>Commercial Game Projects</h3>
+            <aside class="hero-card reveal reveal-delay-1">
+              <p class="hero-card-label" data-i18n="hero.card_label">Hero Setup</p>
+              <h2 data-i18n="hero.card_title">Full banner control</h2>
+              <ul class="hero-card-list">
+                <li data-i18n="hero.card_list_1">Use `--hero-image` to swap the main hero photo.</li>
+                <li data-i18n="hero.card_list_2">Use `--hero-focus-x` and `--hero-focus-y` to shift the focal point.</li>
+                <li data-i18n="hero.card_list_3">Keep this page for welcome, about, and contact in one place.</li>
+              </ul>
+            </aside>
           </div>
-          <div class="project-grid" id="commercial-project-grid"></div>
         </section>
 
-        <section class="subsection reveal reveal-delay-2">
-          <div class="subsection-heading">
-            <h3>Private Game Projects</h3>
+        <section class="content-section intro-section reveal" id="about">
+          <div class="section-heading">
+            <p class="section-kicker" data-i18n="about.kicker">About</p>
+            <h2 data-i18n="about.heading">A soft, readable content rhythm</h2>
+            <p data-i18n="about.description">
+              The page alternates between bright sections and warm neutral sections to keep the
+              scrolling experience light instead of visually heavy.
+            </p>
           </div>
-          <div class="project-grid" id="private-project-grid"></div>
-        </section>
-      </section>
 
-      <section class="content-section reveal" id="contact">
-        <div class="split-heading">
-          <div class="section-heading section-heading-left">
-            <p class="section-kicker">Contact</p>
-            <h2>Keep the social area simple</h2>
-            <p>
+          <div class="about-layout about-layout-single">
+            <article class="about-panel reveal reveal-delay-1">
+              <div class="about-image-wrap about-image-square">
+                <img
+                  src="images/about/Daka_Wolf.png"
+                  alt="Dakawolf profile image"
+                  class="about-image"
+                />
+              </div>
+              <div class="about-content" id="about-content"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="content-section reveal" id="contact">
+          <div class="section-heading">
+            <p class="section-kicker" data-i18n="contact.kicker">Contact</p>
+            <h2 data-i18n="contact.heading">Keep the social area simple</h2>
+            <p data-i18n="contact.description">
               Short social blocks and a featured video work well here because they break up the
               image-heavy sections without feeling dense.
             </p>
           </div>
 
-          <div class="contact-grid reveal reveal-delay-1">
+          <div class="contact-icon-row reveal reveal-delay-1">
             <a
-              class="contact-card"
-              href="https://github.com/your-github-id"
+              class="contact-icon-card discord"
+              href="https://discordapp.com/users/349406230776905729"
               target="_blank"
               rel="noreferrer"
+              data-i18n-attr="data-tooltip:contact.discord.tooltip;aria-label:contact.discord.name"
             >
-              <span class="contact-label">GitHub</span>
-              <strong>github.com/your-github-id</strong>
+              <span class="contact-icon-glyph">D</span>
+              <span class="contact-icon-name" data-i18n="contact.discord.name">Discord</span>
             </a>
-            <a class="contact-card" href="mailto:yourmail@example.com">
-              <span class="contact-label">Email</span>
-              <strong>yourmail@example.com</strong>
+            <a
+              class="contact-icon-card facebook"
+              href="https://www.facebook.com/DAKAWOLF.CHUEH"
+              target="_blank"
+              rel="noreferrer"
+              data-i18n-attr="data-tooltip:contact.facebook.tooltip;aria-label:contact.facebook.name"
+            >
+              <span class="contact-icon-glyph">f</span>
+              <span class="contact-icon-name" data-i18n="contact.facebook.name">Facebook</span>
             </a>
-            <a class="contact-card" href="https://x.com/your-handle" target="_blank" rel="noreferrer">
-              <span class="contact-label">X</span>
-              <strong>@your-handle</strong>
+            <a
+              class="contact-icon-card x-twitter"
+              href="https://x.com/dakawolf1994"
+              target="_blank"
+              rel="noreferrer"
+              data-i18n-attr="data-tooltip:contact.x.tooltip;aria-label:contact.x.name"
+            >
+              <span class="contact-icon-glyph">X</span>
+              <span class="contact-icon-name" data-i18n="contact.x.name">X(Twitter)</span>
+            </a>
+            <a
+              class="contact-icon-card plurk"
+              href="https://www.plurk.com/dakawolf1994"
+              target="_blank"
+              rel="noreferrer"
+              data-i18n-attr="data-tooltip:contact.plurk.tooltip;aria-label:contact.plurk.name"
+            >
+              <span class="contact-icon-glyph">P</span>
+              <span class="contact-icon-name" data-i18n="contact.plurk.name">Plurk</span>
+            </a>
+            <a
+              class="contact-icon-card bluesky"
+              href="https://bsky.app/profile/dakawolf.bsky.social"
+              target="_blank"
+              rel="noreferrer"
+              data-i18n-attr="data-tooltip:contact.bluesky.tooltip;aria-label:contact.bluesky.name"
+            >
+              <span class="contact-icon-glyph">B</span>
+              <span class="contact-icon-name" data-i18n="contact.bluesky.name">Bluesky</span>
             </a>
           </div>
-        </div>
 
-        <div class="video-panel reveal reveal-delay-2">
-          <div class="subsection-heading">
-            <h3>Featured Video</h3>
+          <div class="video-panel reveal reveal-delay-2">
+            <div class="subsection-heading">
+              <h3 data-i18n="contact.video_title">Featured Video</h3>
+            </div>
+            <div class="video-wrap">
+              <iframe
+                src="https://www.youtube.com/embed/7ftC-2zBb1I"
+                title="Featured YouTube Video"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
           </div>
-          <div class="video-wrap">
-            <iframe
-              src="https://www.youtube.com/embed/7ftC-2zBb1I"
-              title="Featured YouTube Video"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </div>
+        </section>
       </section>
 
-      <section class="content-section reveal" id="commissions">
-        <div class="section-heading">
-          <p class="section-kicker">Commissions</p>
-          <h2>Hover details and click-to-expand art</h2>
-          <p>
-            Commission images now support overlay information on hover and can open in a lightbox
-            when clicked.
-          </p>
-        </div>
-        <div id="commission-grid" class="commission-grid commission-grid-featured"></div>
+      <section class="tab-panel" data-tab-panel="projects">
+        <section class="content-section reveal" id="projects">
+          <div class="section-heading">
+            <p class="section-kicker" data-i18n="projects.kicker">Projects</p>
+            <h2 data-i18n="projects.heading">Work presented in clean blocks</h2>
+            <p data-i18n="projects.description">Projects stay readable through large cards, light borders, and restrained typography.</p>
+          </div>
+
+          <section class="subsection reveal reveal-delay-1">
+            <div class="subsection-heading">
+              <h3 data-i18n="projects.commercial_heading">Commercial Game Projects</h3>
+            </div>
+            <div class="project-grid" id="commercial-project-grid"></div>
+          </section>
+
+          <section class="subsection reveal reveal-delay-2">
+            <div class="subsection-heading">
+              <h3 data-i18n="projects.private_heading">Private Game Projects</h3>
+            </div>
+            <div class="project-grid" id="private-project-grid"></div>
+          </section>
+        </section>
+      </section>
+
+      <section class="tab-panel" data-tab-panel="commissions">
+        <section class="content-section reveal" id="commissions">
+          <div class="section-heading">
+            <p class="section-kicker" data-i18n="commissions.kicker">Commissions</p>
+            <h2 data-i18n="commissions.heading">Hover details and click-to-expand art</h2>
+            <p data-i18n="commissions.description">
+              Commission images now support overlay information on hover and can open in a lightbox
+              when clicked.
+            </p>
+          </div>
+          <div id="commission-grid" class="commission-grid commission-grid-featured"></div>
+        </section>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>&copy; <span id="current-year"></span> Dakawolf</p>
+      <p><span data-i18n="footer.copyright_prefix">&copy;</span> <span id="current-year"></span> Dakawolf</p>
     </footer>
 
     <div class="lightbox" id="lightbox" hidden>
       <button class="lightbox-backdrop" id="lightbox-backdrop" type="button" aria-label="Close image preview"></button>
       <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
-        <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close image preview">
-          x
-        </button>
+        <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close image preview">x</button>
         <p class="lightbox-label" id="lightbox-title"></p>
         <img class="lightbox-image" id="lightbox-image" alt="" />
       </div>
     </div>
 
+    <script src="js/translations.js"></script>
     <script src="js/data.js"></script>
-    <script src="code-localtion/about-content.js"></script>
     <script src="js/renderProjects.js"></script>
     <script src="js/renderCommissions.js"></script>
     <script src="js/main.js"></script>
